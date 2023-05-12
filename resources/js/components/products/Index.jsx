@@ -1,6 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Index = () => {
+
+    const navigate = useNavigate()
+
+    const newProduct = () => {
+        navigate('/product/new')
+    }
+
     return (
         <div className="container">
             <div className="products_list">
@@ -9,7 +17,7 @@ const Index = () => {
                         <h1>Products</h1>
                     </div>
                     <div className="titlebar_item">
-                        <div className="btn">
+                        <div className="btn" onClick={()=>newProduct()}>
                             Add product
                         </div>
                     </div>
@@ -25,7 +33,7 @@ const Index = () => {
                         <p>Actions</p>
                     </div>
                     <div className="list_items">
-                        <img src="" height="40px" />
+                        <img src="" height="40px" alt="" />
                         <a href="#">Product name</a>
                         <p>Category</p>
                         <p>50</p>
