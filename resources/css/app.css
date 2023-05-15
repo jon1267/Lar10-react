@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Fira sans', sans-serif;
 }
 body {
@@ -76,4 +77,36 @@ body {
 .danger:hover {
     background: #cd143c;
     color: #ffffff;
+}
+.card_wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 290px);
+    grid-gap: 20px;
+    color: #6a727a;
+    margin-top: 20px;
+}
+.card {
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #ffffff;
+}
+
+.card, p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card, input {
+    padding: 9px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.card, textarea {
+    padding: 9px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: 'Open sans', 'Helvetica News', sans-serif;
 }
