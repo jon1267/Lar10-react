@@ -28,9 +28,11 @@ const New = () => {
                                 <ul className="images_list">
                                     <li className="image_item">
                                         <div className="image_item-img">
-                                            <img src="" alt=""/>
+                                            <img src="" width="117" height="100"/>
                                         </div>
                                     </li>
+
+
                                 </ul>
                             </div>
                         </div>

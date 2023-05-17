@@ -110,3 +110,26 @@ body {
     font-size: 1.1rem;
     font-family: 'Open sans', 'Helvetica News', sans-serif;
 }
+
+.media {
+    margin-top: 10px;
+}
+
+.images_list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+.image_item {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+.image_item-img {
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 117px;
+}
