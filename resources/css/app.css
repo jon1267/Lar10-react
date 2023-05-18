@@ -133,3 +133,29 @@ body {
     margin-right: auto;
     width: 117px;
 }
+.image_item-form {
+    border: 2px dashed #6a727a;
+    position: relative;
+    cursor: pointer;
+}
+.image_item-form--label {
+    padding: 9px 15px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.image_item-form--input {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.br {
+    margin-top: 40px;
+}

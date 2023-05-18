@@ -32,7 +32,12 @@ const New = () => {
                                         </div>
                                     </li>
 
-
+                                    <li className="image_item">
+                                        <form className="image_item-form">
+                                            <label className="image_item-form--label">Add Image</label>
+                                            <input type="file" className="image_item-form--input" />
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
