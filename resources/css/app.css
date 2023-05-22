@@ -103,7 +103,7 @@ body {
 }
 
 .card, textarea {
-    padding: 9px 15px;
+    padding: 13px 15px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     width: 100%;
@@ -137,6 +137,7 @@ body {
     border: 2px dashed #6a727a;
     position: relative;
     cursor: pointer;
+    height: 100px;
 }
 .image_item-form--label {
     padding: 9px 15px;
