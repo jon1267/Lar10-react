@@ -14,8 +14,23 @@ const New = () => {
         let reader = new FileReader()
         let limit = 1024 * 1024 * 2
         if(file['size' > limit]){
-
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong',
+                footer: 'Why do I have this issue ?',
+            })
         }
+        reader.onloadend = (file) => {
+            setPhoto(reader.result)
+        }
+        reader.readAsDataURL(file)
+    }
+
+    const createProduct = async (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
     }
 
     return (
@@ -26,7 +41,7 @@ const New = () => {
                         <h1>Add Product</h1>
                     </div>
                     <div className="titlebar_item">
-                        <button className="btn">
+                        <button className="btn" onClick={(event)=>createProduct(event)} >
                             Save
                         </button>
                     </div>
@@ -45,7 +60,7 @@ const New = () => {
                                 <ul className="images_list">
                                     <li className="image_item">
                                         <div className="image_item-img">
-                                            <img src="{photo}" width="117" height="100"/>
+                                            <img src={photo} width="117" height="100"/>
                                         </div>
                                     </li>
 
@@ -62,17 +77,17 @@ const New = () => {
                     <div className="wrapper_right">
                         <div className="card">
                             <p>Product Type</p>
-                            <input type="text"/>
+                            <input type="text" value={type} onChange={(event)=>{setType(event.target.value)}} />
 
                             <hr className="hr" />
 
                             <p>Inventory</p>
-                            <input type="text"/>
+                            <input type="text" value={quantity} onChange={(event)=>{setQuantity(event.target.value)}} />
 
                             <hr className="hr" />
 
                             <p>Price</p>
-                            <input type="text"/>
+                            <input type="text" value={price} onChange={(event)=>{setPrice(event.target.value)}}  />
 
                             <div className="br"></div>
                         </div>
@@ -83,7 +98,7 @@ const New = () => {
                     <div className="titlebar_item">
                     </div>
                     <div className="titlebar_item">
-                        <button className="btn">
+                        <button className="btn" onClick={(event)=>createProduct(event)} >
                             Save
                         </button>
                     </div>
