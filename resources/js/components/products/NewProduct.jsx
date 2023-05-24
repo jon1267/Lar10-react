@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const New = () => {
+
+    const navigate = useNavigate()
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -31,6 +34,23 @@ const New = () => {
         e.preventDefault()
 
         const formData = new FormData()
+
+        formData.append('name', name)
+        formData.append('description', description)
+        formData.append('photo', photo)
+        formData.append('type', type)
+        formData.append('quantity', quantity)
+        formData.append('price', price)
+
+        await axios.post('/api/add-product/', formData)
+            .then(({data}) => {
+                toast.fire({
+                    icon: "success",
+                    title: "Product was added successfully"
+                })
+                navigate('/')
+            })
+            .catch(({response}) => {})
     }
 
     return (
