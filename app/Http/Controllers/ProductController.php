@@ -19,6 +19,15 @@ class ProductController extends Controller
             $ext = explode('/',$substr)[1];
             $name = time().'.'.$ext;
             $img = Image::make($request->photo)->resize(117,100);
+            $uploadPath = public_path().'/upload/';
+            $img->save($uploadPath.$name);
+            $product->photo = $name;
+        } else {
+            $product->photo = 'image.png';
         }
+        $product->type = $request->type;
+        $product->quantity = $request->quantity;
+        $product->price = $request->price;
+        $product->save();
     }
 }
