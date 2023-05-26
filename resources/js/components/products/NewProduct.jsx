@@ -33,17 +33,27 @@ const New = () => {
     const createProduct = async (e) => {
         e.preventDefault()
 
+        /* dont worked
         const formData = new FormData()
-
         formData.append('name', name)
         formData.append('description', description)
         formData.append('photo', photo)
         formData.append('type', type)
         formData.append('quantity', quantity)
-        formData.append('price', price)
+        formData.append('price', price)*/
 
-        await axios.post('/api/add-product/', formData)
+        const formData = {}
+        formData.name = name
+        formData.description = description
+        formData.photo = photo
+        formData.type = type
+        formData.quantity = parseInt(quantity)
+        formData.price = parseInt(price)
+        console.log(formData)
+
+        await axios.post('/api/add-product', formData)
             .then(({data}) => {
+                console.log(data)
                 toast.fire({
                     icon: "success",
                     title: "Product was added successfully"

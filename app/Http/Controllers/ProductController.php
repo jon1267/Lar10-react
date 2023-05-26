@@ -8,6 +8,13 @@ use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
+    public function getAllProduct()
+    {
+        $products = Product::all();
+
+        return response()->json(['products' => $products],200);
+    }
+
     public function addProduct(Request $request)
     {
         $product = new Product();

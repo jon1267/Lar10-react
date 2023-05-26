@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Index = () => {
 
     const navigate = useNavigate()
 
+    const [products, setProducts] = useState([])
+
     const newProduct = () => {
         navigate('/product/new')
+    }
+    useEffect(() => {
+        getProducts()
+    })
+
+    const getProducts = async () => {
+        await  axios.get('/api/get-all-product')
+            .then(({data}) => {
+                setProducts(data.products);
+            })
+    }
+
+    const editProduct = (id) => {
+        navigate('/product/edit/'+ id)
     }
 
     return (
@@ -32,21 +48,28 @@ const Index = () => {
                         <p>Price</p>
                         <p>Actions</p>
                     </div>
-                    <div className="list_items">
-                        <img src="" height="40px" alt="" />
-                        <a href="#">Product name</a>
-                        <p>Category</p>
-                        <p>50</p>
-                        <p>750</p>
-                        <div>
-                            <button className = "btn-icon success">
-                                <i className = "fas fa-pencil-alt"></i>
-                            </button>
-                            <button className = "btn-icon danger">
-                                <i className = "fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                    </div>
+                    {
+                        products.length > 0 && (
+                            products.map((item, key) => (
+                                <div className="list_items" key={key}>
+                                    <img src={`/upload/${item.photo}`} height="40px" alt="" />
+                                    <a href="#">{item.name}</a>
+                                    <p>{item.type}</p>
+                                    <p>{item.quantity}</p>
+                                    <p>{item.price}</p>
+                                    <div>
+                                        <button className = "btn-icon success" onClick={() => editProduct(item.id)}>
+                                            <i className = "fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button className = "btn-icon danger">
+                                            <i className = "fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        )
+                    }
+
                 </div>
             </div>
         </div>
