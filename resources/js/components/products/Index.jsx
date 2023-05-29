@@ -12,7 +12,7 @@ const Index = () => {
     }
     useEffect(() => {
         getProducts()
-    })
+    }, [])
 
     const getProducts = async () => {
         await  axios.get('/api/get-all-product')
@@ -22,7 +22,7 @@ const Index = () => {
     }
 
     const editProduct = (id) => {
-        navigate('/product/edit/'+ id)
+        navigate(`/product/edit/${id}`)
     }
 
     return (
@@ -44,7 +44,7 @@ const Index = () => {
                         <p>Image</p>
                         <p>Product</p>
                         <p>Type</p>
-                        <p>Inventory</p>
+                        <p>Quantity</p>
                         <p>Price</p>
                         <p>Actions</p>
                     </div>

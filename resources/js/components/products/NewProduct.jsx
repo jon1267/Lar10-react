@@ -66,6 +66,7 @@ const New = () => {
     return (
         <div className="container">
             <div className="products_create">
+
                 <div className="titlebar">
                     <div className="titlebar_item">
                         <h1>Add Product</h1>
@@ -111,7 +112,7 @@ const New = () => {
 
                             <hr className="hr" />
 
-                            <p>Inventory</p>
+                            <p>Quantity</p>
                             <input type="text" value={quantity} onChange={(event)=>{setQuantity(event.target.value)}} />
 
                             <hr className="hr" />
