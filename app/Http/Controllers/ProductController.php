@@ -10,9 +10,7 @@ class ProductController extends Controller
 {
     public function getAllProduct()
     {
-        $products = Product::all();
-
-        return response()->json(['products' => $products],200);
+        return response()->json(['products' => Product::all()],200);
     }
 
     public function addProduct(Request $request)
@@ -36,5 +34,10 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
         $product->price = $request->price;
         $product->save();
+    }
+
+    public function editProduct($id)
+    {
+        return response()->json(['product' => Product::find($id)],200);
     }
 }
