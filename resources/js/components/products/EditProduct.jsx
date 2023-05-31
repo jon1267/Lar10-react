@@ -58,7 +58,26 @@ const Edit = () => {
 
     const updateProduct = async (e) => {
         e.preventDefault()
-        
+
+        const formData = {}
+        formData.name = name
+        formData.description = description
+        formData.photo = photo
+        formData.type = type
+        formData.quantity = parseInt(quantity)
+        formData.price = parseInt(price)
+        //console.log(formData)
+
+        await axios.post(`/api/update-product/${id}`, formData)
+            .then(({data})=> {
+                //console.log(data)
+                toast.fire({
+                    icon: 'success',
+                    title: 'Product update successfully',
+                })
+                navigate('/')
+            })
+            .catch(({error}) => {})
     }
 
     return (

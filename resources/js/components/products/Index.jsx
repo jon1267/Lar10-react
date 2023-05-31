@@ -25,6 +25,10 @@ const Index = () => {
         navigate(`/product/edit/${id}`)
     }
 
+    const deleteProduct = async (id) => {
+
+    }
+
     return (
         <div className="container">
             <div className="products_list">

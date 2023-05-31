@@ -49,11 +49,11 @@ const New = () => {
         formData.type = type
         formData.quantity = parseInt(quantity)
         formData.price = parseInt(price)
-        console.log(formData)
+        //console.log(formData)
 
         await axios.post('/api/add-product', formData)
             .then(({data}) => {
-                console.log(data)
+                //console.log(data)
                 toast.fire({
                     icon: "success",
                     title: "Product was added successfully"
