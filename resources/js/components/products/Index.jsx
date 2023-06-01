@@ -27,6 +27,26 @@ const Index = () => {
 
     const deleteProduct = async (id) => {
 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You cannot undo this operation !',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.get(`/api/delete-product/${id}`)
+                    .then(() => {
+                        toast.fire({
+                            icon: 'success',
+                            title: `Product with id = ${id} was deleted`
+                        })
+                        getProducts()
+                    }).catch((error) => {})
+            }
+        })
     }
 
     return (
@@ -65,7 +85,7 @@ const Index = () => {
                                         <button className = "btn-icon success" onClick={() => editProduct(item.id)}>
                                             <i className = "fas fa-pencil-alt"></i>
                                         </button>
-                                        <button className = "btn-icon danger">
+                                        <button className = "btn-icon danger" onClick={() => deleteProduct(item.id)} >
                                             <i className = "fas fa-trash-alt"></i>
                                         </button>
                                     </div>
