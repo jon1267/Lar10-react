@@ -17,6 +17,7 @@ const Edit = () => {
 
     useEffect(() => {
         getProduct()
+            .then(r => {})
     }, [])
 
     const getProduct = async () => {

@@ -11,7 +11,8 @@ const Index = () => {
         navigate('/product/new')
     }
     useEffect(() => {
-        getProducts()
+       getProducts()
+           .then(r => {})
     }, [])
 
     const getProducts = async () => {
@@ -22,7 +23,7 @@ const Index = () => {
     }
 
     const editProduct = (id) => {
-        navigate(`/product/edit/${id}`)
+        navigate('/product/edit/'+id)
     }
 
     const deleteProduct = async (id) => {
